@@ -11,6 +11,6 @@ package com.example.zqd.myproject.constancs;
  */
 public class Constants {
 
-    public static final String baseUrl = "HEIHEIHEI!";
+    public static final String baseUrl = "http://HEIHEIHEI!";
 
 }
