@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MyProject</string>
+
+    <string name="stfErrorMessage">网络异常</string>
+    <string name="stfOfflineMessage">Please check your connection</string>
+    <string name="stfLocationOffMessage">Please enable location services</string>
+    <string name="stfEmptyMessage">暂无数据</string>
+    <string name="stfLoadingMessage">加载中...</string>
+    <string name="stfButtonText">重新加载</string>
+    <string name="nomoredata">已无更多数据</string>
+    <string name="no_more_data">暂无更多数据</string>
+
+</resources>

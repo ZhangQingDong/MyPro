@@ -1,0 +1,40 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--dialog风格-->
+    <style name="CumstomDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item><!--边框-->
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">false</item><!--半透明-->
+        <item name="android:windowNoTitle">true</item><!--无标题-->
+        <item name="android:windowBackground">@color/trans</item><!--背景透明-->
+        <item name="android:backgroundDimEnabled">true</item><!--模糊-->
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="buttonStyle_red" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="com.example.zqd.myproject:radius">3dp</item>
+        <item name="com.example.zqd.myproject:round">false</item>
+        <item name="com.example.zqd.myproject:unableStrokeWidth">0px</item>
+        <item name="com.example.zqd.myproject:normalStrokeWidth">0px</item>
+        <item name="com.example.zqd.myproject:pressedStrokeWidth">0px</item>
+        <item name="com.example.zqd.myproject:normalStrokeColor">@android:color/white</item>
+        <item name="com.example.zqd.myproject:pressedStrokeColor">@android:color/white</item>
+        <item name="com.example.zqd.myproject:unableStrokeColor">@android:color/white</item>
+        <item name="com.example.zqd.myproject:normalTextColor">@android:color/white</item>
+        <item name="com.example.zqd.myproject:pressedTextColor">@android:color/white</item>
+        <item name="com.example.zqd.myproject:unableTextColor">@color/c999999</item>
+        <item name="com.example.zqd.myproject:normalBackgroundColor">@color/cf23030</item>
+        <item name="com.example.zqd.myproject:pressedBackgroundColor">@color/cdd2d2d</item>
+        <item name="com.example.zqd.myproject:unableBackgroundColor">@color/ce3e3e3</item>
+    </style>
+
+
+</resources>
