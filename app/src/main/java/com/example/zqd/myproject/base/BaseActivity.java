@@ -89,6 +89,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends RxAppCompatA
         if (presenter != null) {
             presenter.onDestroy();
         }
+        progressDialog = null;
     }
 
 
