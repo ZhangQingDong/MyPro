@@ -1,5 +1,8 @@
 package com.example.zqd.myproject.model.api;
 
+
+import com.tencent.bugly.crashreport.CrashReport;
+
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -21,7 +24,7 @@ public abstract class HandleObserver<T> implements Observer<T> {
 
     @Override
     public void onError(Throwable e) {
-        //todo 集成bugly
+        CrashReport.postCatchedException(e);
         onMyError(e);
     }
 

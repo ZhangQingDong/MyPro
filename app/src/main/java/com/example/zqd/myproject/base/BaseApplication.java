@@ -6,6 +6,7 @@ import com.example.zqd.myproject.dagger2.component.AppComponent;
 import com.example.zqd.myproject.dagger2.component.DaggerAppComponent;
 import com.example.zqd.myproject.dagger2.module.AppModule;
 import com.squareup.leakcanary.LeakCanary;
+import com.tencent.bugly.crashreport.CrashReport;
 
 /**
  * <p>Title: com.example.zqd.myproject.base</p>
@@ -27,6 +28,7 @@ public class BaseApplication extends Application {
         application = this;
         appComponent = DaggerAppComponent.builder().appModule(new AppModule()).build();
         initLeakCanary();
+        CrashReport.initCrashReport(this, "1a9d6e4309", false);
     }
 
     public static BaseApplication getApp() {
