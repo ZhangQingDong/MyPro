@@ -61,6 +61,11 @@ public abstract class BaseActivity<P extends BasePresenter> extends RxAppCompatA
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
     protected void onRestart() {
         super.onRestart();
     }
@@ -152,4 +157,5 @@ public abstract class BaseActivity<P extends BasePresenter> extends RxAppCompatA
     public void getErrorData() {
 
     }
+
 }

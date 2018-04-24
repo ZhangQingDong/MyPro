@@ -57,7 +57,7 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> implements
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt:
-                presenter.getDoLogin("18341359697", "Zqd1994911..");
+                presenter.getDoLogin("XXXX", "XXXX");
                 break;
             case R.id.tab_fragment:
                 startActivity(new Intent(MainActivity.this, TabActivity.class));

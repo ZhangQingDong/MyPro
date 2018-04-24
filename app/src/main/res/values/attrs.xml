@@ -98,4 +98,17 @@
         <enum name="BLOCK" value="2" />
     </attr>
 
+    <declare-styleable name="CommonToolBar">
+        <attr name="isLeftShow" format="boolean" />
+        <attr name="isMidShow" format="boolean" />
+        <attr name="isRightShow" format="boolean" />
+        <attr name="isLeftIvShow" format="boolean" />
+        <attr name="isRightIvShow" format="boolean" />
+        <attr name="isLeftTvShow" format="boolean" />
+        <attr name="isRightTvShow" format="boolean" />
+        <attr name="isTitleShow" format="boolean" />
+
+        <attr name="title" format="string" />
+    </declare-styleable>
+
 </resources>
