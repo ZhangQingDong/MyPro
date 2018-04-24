@@ -53,7 +53,7 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> implements
         tv.setText(new Gson().toJson(loginBean));
     }
 
-    @OnClick({R.id.bt, R.id.tab_fragment})
+    @OnClick({R.id.bt, R.id.tab_fragment, R.id.bt_history_today})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt:
@@ -61,6 +61,9 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> implements
                 break;
             case R.id.tab_fragment:
                 startActivity(new Intent(MainActivity.this, TabActivity.class));
+                break;
+            case R.id.bt_history_today:
+                startActivity(new Intent(MainActivity.this, HistoryActivity.class));
                 break;
             default:
                 break;
