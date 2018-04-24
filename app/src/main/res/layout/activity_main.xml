@@ -37,5 +37,11 @@
         android:layout_height="wrap_content"
         android:text="TAB_FRAGMENT" />
 
+    <Button
+        android:id="@+id/bt_history_today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="历史上的今天" />
+
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.zqd.myproject.model.api;
 
+import com.example.zqd.myproject.model.bean.HistoryBean;
 import com.example.zqd.myproject.model.bean.LoginBean;
 
 import io.reactivex.Observable;
@@ -23,6 +24,16 @@ public interface ServiceApi {
     Observable<LoginBean> getAppLogin(
             @Field("username") String username,
             @Field("password") String password
+    );
+
+    /**
+     * 历史上的今天
+     */
+    @FormUrlEncoded
+    @POST("/119-42")
+    Observable<HistoryBean> getHistory(
+            @Field("showapi_appid") String showapi_appid,
+            @Field("showapi_sign") String showapi_sign
     );
 
 }
