@@ -1,5 +1,6 @@
 package com.example.zqd.myproject.base;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -157,6 +158,37 @@ public abstract class BaseActivity<P extends BasePresenter> extends RxAppCompatA
     @Override
     public void getErrorData() {
 
+    }
+
+    /**
+     * activity跳转
+     *
+     * @param activity
+     * @param cls
+     * @param bundle
+     */
+    protected void go(RxAppCompatActivity activity, Class<? extends RxAppCompatActivity> cls, Bundle bundle) {
+        Intent intent = new Intent(activity, cls);
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        activity.startActivity(intent);
+        doAnim();
+    }
+
+    /**
+     * 退出当前activity
+     */
+    protected void out() {
+        finish();
+        doAnim();
+    }
+
+    /**
+     * activity动画的执行
+     */
+    private void doAnim() {
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
 }

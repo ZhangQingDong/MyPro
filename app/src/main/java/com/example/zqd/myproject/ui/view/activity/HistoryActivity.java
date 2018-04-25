@@ -45,7 +45,7 @@ public class HistoryActivity extends BaseActivity<HistoryActivityPresenter> impl
 
     @Override
     protected void onBackPress() {
-        this.finish();
+        out();
     }
 
     @Override
