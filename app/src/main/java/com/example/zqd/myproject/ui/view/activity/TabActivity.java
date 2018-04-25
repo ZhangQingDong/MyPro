@@ -44,7 +44,7 @@ public class TabActivity extends BaseActivity {
 
     @Override
     protected void onBackPress() {
-        finish();
+        out();
     }
 
     @Override

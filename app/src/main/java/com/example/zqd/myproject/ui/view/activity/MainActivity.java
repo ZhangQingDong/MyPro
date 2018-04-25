@@ -35,7 +35,7 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> implements
 
     @Override
     protected void onBackPress() {
-        this.finish();
+        out();
     }
 
     @Override
@@ -63,7 +63,7 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> implements
                 startActivity(new Intent(MainActivity.this, TabActivity.class));
                 break;
             case R.id.bt_history_today:
-                startActivity(new Intent(MainActivity.this, HistoryActivity.class));
+                go(MainActivity.this, HistoryActivity.class, null);
                 break;
             default:
                 break;
