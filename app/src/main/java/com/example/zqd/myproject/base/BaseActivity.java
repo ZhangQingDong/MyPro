@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.example.zqd.myproject.constancs.RxBusConstants;
 import com.example.zqd.myproject.dagger2.component.ActivityComponent;
 import com.example.zqd.myproject.dagger2.component.DaggerActivityComponent;
 import com.example.zqd.myproject.ui.dialog.ProgressDialog;
+import com.example.zqd.myproject.utils.RxBus;
 import com.example.zqd.myproject.utils.ToastUtil;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
@@ -14,6 +16,8 @@ import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import io.reactivex.Observable;
+import io.reactivex.disposables.Disposable;
 
 /**
  * <p>Title: com.example.zqd.myproject.base</p>
@@ -30,6 +34,8 @@ public abstract class BaseActivity<P extends BasePresenter> extends RxAppCompatA
     protected P presenter;
     private Unbinder unbinder;
     private ProgressDialog progressDialog;
+    protected Observable mObservable;
+    protected Disposable mDisposable;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,6 +53,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends RxAppCompatA
         if (presenter != null) {
             presenter.onAttach(this);
         }
+        registRxBus();
         init();
     }
 
@@ -91,6 +98,28 @@ public abstract class BaseActivity<P extends BasePresenter> extends RxAppCompatA
             presenter.onDestroy();
         }
         progressDialog = null;
+        if (mDisposable != null && !mDisposable.isDisposed()) {
+            mDisposable.dispose();
+        }
+        if (mObservable != null) {
+            RxBus.getInstance().unregister(getRxTag(), mObservable);
+        }
+    }
+
+    /**
+     * 注册rxbus
+     */
+    protected void registRxBus() {
+
+    }
+
+    /**
+     * 获取RXBUS注册的TAG
+     *
+     * @return
+     */
+    protected String getRxTag() {
+        return "";
     }
 
 
@@ -177,6 +206,23 @@ public abstract class BaseActivity<P extends BasePresenter> extends RxAppCompatA
     }
 
     /**
+     * 回传跳转
+     *
+     * @param cls
+     * @param bundle
+     * @param requestCode
+     */
+    protected void goForResult(Class<?> cls, Bundle bundle, int requestCode) {
+        Intent intent = new Intent();
+        intent.setClass(this, cls);
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        startActivityForResult(intent, requestCode);
+        doAnim();
+    }
+
+    /**
      * 退出当前activity
      */
     protected void out() {
@@ -190,5 +236,4 @@ public abstract class BaseActivity<P extends BasePresenter> extends RxAppCompatA
     private void doAnim() {
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
-
 }

@@ -11,6 +11,6 @@ package com.example.zqd.myproject.constancs;
  */
 public class RxBusConstants {
 
-    public static final String TAG = "";
+    public static final String TEST_TAG = "test_tag";
 
 }
