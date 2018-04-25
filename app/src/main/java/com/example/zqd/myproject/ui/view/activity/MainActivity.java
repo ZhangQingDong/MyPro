@@ -8,15 +8,20 @@ import android.widget.TextView;
 
 import com.example.zqd.myproject.R;
 import com.example.zqd.myproject.base.BaseActivity;
+import com.example.zqd.myproject.constancs.RxBusConstants;
 import com.example.zqd.myproject.dagger2.component.ActivityComponent;
 import com.example.zqd.myproject.contract.MainActivityContract;
 import com.example.zqd.myproject.model.bean.LoginBean;
 import com.example.zqd.myproject.presenter.activity.MainActivityPresenter;
 import com.example.zqd.myproject.utils.ImageUtil;
+import com.example.zqd.myproject.utils.RxBus;
 import com.google.gson.Gson;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 
 /**
  * @author zqd
@@ -68,5 +73,21 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> implements
             default:
                 break;
         }
+    }
+
+    @Override
+    protected void registRxBus() {
+        mObservable = RxBus.getInstance().register(RxBusConstants.TEST_TAG);
+        mDisposable = mObservable.observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<String>() {
+            @Override
+            public void accept(String o) throws Exception {
+                iv.setImageResource(R.drawable.ic_arrow_back_black_24dp);
+            }
+        });
+    }
+
+    @Override
+    protected String getRxTag() {
+        return RxBusConstants.TEST_TAG;
     }
 }

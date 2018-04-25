@@ -7,12 +7,14 @@ import android.view.View;
 import com.example.zqd.myproject.R;
 import com.example.zqd.myproject.adapter.listadapter.HistoryAdapter;
 import com.example.zqd.myproject.base.BaseActivity;
+import com.example.zqd.myproject.constancs.RxBusConstants;
 import com.example.zqd.myproject.contract.HistoryActivityContract;
 import com.example.zqd.myproject.dagger2.component.ActivityComponent;
 import com.example.zqd.myproject.model.bean.HistoryBean;
 import com.example.zqd.myproject.presenter.activity.HistoryActivityPresenter;
 import com.example.zqd.myproject.ui.customview.CommonToolBar;
 import com.example.zqd.myproject.ui.statelayout.StatefulLayout;
+import com.example.zqd.myproject.utils.RxBus;
 
 import java.util.List;
 
@@ -57,6 +59,7 @@ public class HistoryActivity extends BaseActivity<HistoryActivityPresenter> impl
             }
         });
         getData();
+        RxBus.getInstance().post(RxBusConstants.TEST_TAG, "");
     }
 
     @Override
