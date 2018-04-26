@@ -1,6 +1,10 @@
 package com.example.zqd.myproject.ui.view.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,9 +17,12 @@ import com.example.zqd.myproject.dagger2.component.ActivityComponent;
 import com.example.zqd.myproject.contract.MainActivityContract;
 import com.example.zqd.myproject.model.bean.LoginBean;
 import com.example.zqd.myproject.presenter.activity.MainActivityPresenter;
+import com.example.zqd.myproject.ui.dialog.NoticeDialog;
 import com.example.zqd.myproject.utils.ImageUtil;
 import com.example.zqd.myproject.utils.RxBus;
 import com.google.gson.Gson;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -58,7 +65,7 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> implements
         tv.setText(new Gson().toJson(loginBean));
     }
 
-    @OnClick({R.id.bt, R.id.tab_fragment, R.id.bt_history_today})
+    @OnClick({R.id.bt, R.id.tab_fragment, R.id.bt_history_today, R.id.bt_dialog})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt:
@@ -69,6 +76,9 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> implements
                 break;
             case R.id.bt_history_today:
                 go(MainActivity.this, HistoryActivity.class, null);
+                break;
+            case R.id.bt_dialog:
+                new NoticeDialog(MainActivity.this).show();
                 break;
             default:
                 break;
@@ -90,4 +100,5 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> implements
     protected String getRxTag() {
         return RxBusConstants.TEST_TAG;
     }
+
 }

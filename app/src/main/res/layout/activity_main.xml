@@ -43,5 +43,11 @@
         android:layout_height="wrap_content"
         android:text="历史上的今天" />
 
+    <Button
+        android:id="@+id/bt_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DIALOG" />
+
 
 </LinearLayout>
