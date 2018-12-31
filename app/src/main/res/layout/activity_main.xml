@@ -1,53 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.view.activity.MainActivity">
-
-    <com.example.zqd.myproject.ui.customview.CommonToolBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:title="首页" />
-
-
-    <ImageView
-        android:id="@+id/iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp" />
-
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center" />
-
-    <Button
-        android:id="@+id/bt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="login" />
-
-    <Button
-        android:id="@+id/tab_fragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TAB_FRAGMENT" />
-
-    <Button
-        android:id="@+id/bt_history_today"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="历史上的今天" />
-
-    <Button
-        android:id="@+id/bt_dialog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DIALOG" />
-
 
 </LinearLayout>
