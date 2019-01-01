@@ -15,18 +15,18 @@ import com.example.zqd.myproject.dagger2.component.FragmentComponent;
  * @version 4.0
  * @date 2018/4/20 15:01
  */
-public class FragmentThree extends BaseFragment {
+public class FragmentFour extends BaseFragment {
 
-    public static FragmentThree newInstance() {
+    public static FragmentFour newInstance() {
         Bundle args = new Bundle();
-        FragmentThree fragment = new FragmentThree();
+        FragmentFour fragment = new FragmentFour();
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_three;
+        return R.layout.fragment_four;
     }
 
     @Override
