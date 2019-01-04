@@ -31,7 +31,7 @@ import butterknife.Unbinder;
 public abstract class BaseFragment<P extends BasePresenter> extends RxFragment implements BaseView {
 
     @Inject
-    P presenter;
+    protected P presenter;
     private Unbinder unbinder;
     private ProgressDialog progressDialog;
     protected View mRootView;
@@ -56,13 +56,15 @@ public abstract class BaseFragment<P extends BasePresenter> extends RxFragment i
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initInject(getComponent());
         unbinder = ButterKnife.bind(this, mRootView);
         if (presenter != null) {
             presenter.onAttach(this);
         }
-        initInject(getComponent());
         init();
     }
+
+
 
     /**
      * 设置layout

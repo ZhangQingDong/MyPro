@@ -6,8 +6,11 @@
 
     <color name="trans">#00000000</color>
     <color name="c999999">#999999</color>
+    <color name="c000000">#000000</color>
     <color name="c666666">#666666</color>
+    <color name="c444444">#444444</color>
     <color name="cf23030">#f23030</color>
     <color name="ce3e3e3">#e3e3e3</color>
     <color name="cdd2d2d">#dd2d2d</color>
+    <color name="cffffff">#ffffff</color>
 </resources>

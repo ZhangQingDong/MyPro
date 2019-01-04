@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
 
 android {
     compileSdkVersion 27
@@ -20,6 +22,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+greendao {
+    schemaVersion 1 // 数据库版本号
+    daoPackage 'com.example.zqd.greendao'//greenDao 自动生成的代码保存的包名
+    targetGenDir 'src/main/java' //自动生成的代码存储的路径，默认是 build/generated/source/greendao.
+    generateTests false //true的时候自动生成测试单元
+//    targetGenDirTests: 测试单元的生成目录默认是 src/androidTest/java
 }
 
 dependencies {
@@ -50,6 +60,7 @@ dependencies {
     /**
      * network
      */
+    implementation 'com.google.code.gson:gson-parent:2.8.4'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
@@ -59,11 +70,12 @@ dependencies {
     implementation 'com.trello.rxlifecycle2:rxlifecycle-android:2.2.0'
     implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.0.0'
 
     /**
      * adapter
      */
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.31'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.44'
 
     /**
      * picture
@@ -82,4 +94,6 @@ dependencies {
      */
     implementation 'com.tencent.bugly:crashreport:latest.release'
     implementation 'com.tencent.bugly:nativecrashreport:latest.release'
+
+    implementation 'org.greenrobot:greendao:3.2.2' // add library
 }

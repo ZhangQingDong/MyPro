@@ -2,11 +2,16 @@ package com.example.zqd.myproject.model.api;
 
 import com.example.zqd.myproject.model.bean.HistoryBean;
 import com.example.zqd.myproject.model.bean.LoginBean;
+import com.example.zqd.myproject.model.bean.NewsListBean;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 /**
  * <p>Title: com.example.zqd.myproject.model.api</p>
@@ -34,6 +39,21 @@ public interface ServiceApi {
     Observable<HistoryBean> getHistory(
             @Field("showapi_appid") String showapi_appid,
             @Field("showapi_sign") String showapi_sign
+    );
+
+    /**
+     * 根据id获取不同类型的新闻资讯
+     *
+     * @param id
+     * @param action
+     * @param pullNum
+     * @return
+     */
+    @GET("/ClientNews")
+    Observable<List<NewsListBean>> getNews(
+            @Query("id") String id,
+            @Query("action") String action,
+            @Query("pullNum") int pullNum
     );
 
 }

@@ -4,6 +4,7 @@ import com.example.zqd.myproject.dagger2.scope.FragmentScope;
 import com.example.zqd.myproject.ui.view.fragment.FragmentOne;
 import com.example.zqd.myproject.ui.view.fragment.FragmentThree;
 import com.example.zqd.myproject.ui.view.fragment.FragmentTwo;
+import com.example.zqd.myproject.ui.view.fragment.NewsListFragment;
 
 import dagger.Component;
 
@@ -19,5 +20,5 @@ import dagger.Component;
 @FragmentScope
 @Component(dependencies = AppComponent.class)
 public interface FragmentComponent {
-
+    void inject(NewsListFragment newsListFragment);
 }

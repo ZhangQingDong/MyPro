@@ -3,6 +3,7 @@ package com.example.zqd.myproject.utils;
 import com.example.zqd.myproject.base.BaseView;
 import com.trello.rxlifecycle2.components.RxActivity;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+import com.trello.rxlifecycle2.components.support.RxFragment;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
@@ -47,6 +48,31 @@ public class RxUtil {
             }
         };
     }
+
+    public static <T> ObservableTransformer<T, T> applySchedulersWithLoadingFragment(final BaseView view) {
+        return new ObservableTransformer<T, T>() {
+            @Override
+            public ObservableSource<T> apply(Observable<T> upstream) {
+                return upstream.subscribeOn(Schedulers.io())
+                        .doOnSubscribe(new Consumer<Disposable>() {
+                            @Override
+                            public void accept(Disposable disposable) throws Exception {
+                                view.showLoading();
+                            }
+                        })
+                        .subscribeOn(AndroidSchedulers.mainThread())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .doFinally(new Action() {
+                            @Override
+                            public void run() throws Exception {
+                                view.hideLoading();
+                            }
+                        })
+                        .compose(((RxFragment) view).<T>bindToLifecycle());
+            }
+        };
+    }
+
 
     public static <T> ObservableTransformer<T, T> applySchedulersNoLoading(final BaseView view) {
         return new ObservableTransformer<T, T>() {

@@ -11,6 +11,12 @@ package com.example.zqd.myproject.constancs;
  */
 public class Constants {
 
-    public static final String baseUrl = "http://route.showapi.com ";
+    public static final String baseUrl = "http://api.iclient.ifeng.com";
 
+    /**
+     * 刷新的方式
+     */
+    public static final String ACTION_DEFAULT = "default";
+    public static final String ACTION_DOWN = "down";
+    public static final String ACTION_UP = "up";
 }
